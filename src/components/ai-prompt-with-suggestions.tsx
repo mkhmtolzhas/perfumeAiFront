@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Sparkles } from "lucide-react"
-import "axios"
 
 const promptSuggestions = [
   'Какой парфюм выбрать на лето для мужчины?',

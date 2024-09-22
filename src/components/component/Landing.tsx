@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../layout/Header';
 import { AiPromptWithSuggestions } from '../ai-prompt-with-suggestions';
-import AiPromptMobile from './AiPromptMobile';
 
 const Landing = () => {
 
