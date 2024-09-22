@@ -92,7 +92,7 @@ export function AiPromptWithSuggestions() {
               variant="outline"
               size="sm"
               onClick={() => handleSuggestionClick(suggestion)}
-              className="text-xs border-[2px] border-[#e2ff42] text-[#000] hover:bg-[#e2ff42] hover:text-black"
+              className="text-xs bg-[#e2ff42] border-[2px] border-[#e2ff42] text-[#000] hover:bg-[#e2ff42] hover:text-black"
             >
               {suggestion}
             </Button>
