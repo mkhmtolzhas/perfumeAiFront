@@ -9,7 +9,7 @@ export default function Home() {
       <Landing />
       <div className="lg:hidden md:hidden w-full">
         <AiPromptMobile/>
-    </div>
+      </div>
       <Products />
     </div>
   );
