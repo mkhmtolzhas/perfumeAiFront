@@ -1,9 +1,7 @@
 "use client";
 import { Sparkles } from 'lucide-react';
-import React, { use, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import axios from 'axios';
-import Loading from './Loading';
-import { Button } from '../ui/button';
 
 const AiPromptMobile = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +35,11 @@ const AiPromptMobile = () => {
     const handleSuggestionClick = (suggestion: string) => {
         setPrompt(suggestion);
     };
+    useEffect(() => {
+        if (isLoading) {
+            console.log('loading...');
+        }
+    }, [isLoading]);
     
     
     return (
