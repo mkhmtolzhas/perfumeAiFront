@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 const AiPromptMobile = () => {
-    // const [isLoading, setIsLoading] = useState(false);
     const [prompt, setPrompt] = useState('');
     const suggestions = [
         'Парфюм с нотами ванили',
@@ -12,25 +11,6 @@ const AiPromptMobile = () => {
         'Парфюм для офиса',
         'Повседневный парфюм для мужчин',
     ];
-
-    // const sendPrompt = async (e: React.FormEvent) => {
-    //     e.preventDefault();
-    //     if (!prompt.trim()) return;
-    //     setIsLoading(true);
-    //     try {
-    //         const response = await axios.post('http://localhost:8000/api/ai/response', {
-    //             prompt: prompt
-    //         });
-    //         if (response.status === 200) {
-    //             setIsLoading(false);
-    //         }
-    //         console.log(response);
-    //     } catch (error) {
-    //         console.error("Ошибка:", error);
-    //         setIsLoading(false);
-    //     }
-    //     setPrompt('');
-    // };
 
     const handleSuggestionClick = (suggestion: string) => {
         setPrompt(suggestion);

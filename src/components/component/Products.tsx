@@ -1,8 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Loading from './Loading'
 import Product from './Product'
+
+
 
 
 const Products = () => {
@@ -19,8 +20,12 @@ const Products = () => {
       console.error("Ошибка:", error)
     }
   }
+  useEffect(() => {
+    console.log(loading)
+  }, [loading])
 
   useEffect(() => {
+    setLoading(true)
     fetchPerfumes()
   }, [page])
 
@@ -28,26 +33,24 @@ const Products = () => {
     console.log(perfume)
   }, [perfume])
 
-  if (loading) {
-    return (
-      <Loading />
-    )
-  }
-
-
-
   return (
-    <section className='w-full h-screen px-[8%] py-[30px]'>
-      <h1 className='text-2xl font-bold'>Каталог</h1>
-        <div className="grid grid-cols-3 gap-3">
+    <>
+    <section className='w-full px-[8%] py-[30px]'>
+      <h1 className='text-3xl font-bold px-5'>Каталог</h1>
+        <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 items-center gap-3">
           {
-            perfume.map((item: any) => (
-              <Product key={item.id} name={item.name} brand={item.brand} type={item.type} price={item.price} description={item.description} attributes={item.attributes} image={item.image} url={item.url} />
+            loading ? Array.from({ length: 9 }).map((_, index) => (
+              <div className="w-full px-5 py-5">
+                <div key={index} className="relative flex p-4 flex-col justify-end w-full lg:h-[50vh] h-[30vh] rounded-md shadow-lg bg-gray-200 animate-pulse" />
+              </div>
+            )) : perfume.map((item: any) => (
+              <Product key={item.id} name={item.name} brand={item.brand} type={item.type} price={item.price} image={item.image} url={item.url} />
             ))
           }
         </div>
     </section>
-    
+    <button onClick={e => setPage(page+1)}>+1</button>
+    </>
   )
 }
 

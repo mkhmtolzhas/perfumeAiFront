@@ -1,6 +1,7 @@
 import Products from '@/components/component/Products';
 import Landing from '../components/component/Landing';
 import AiPromptMobile from '@/components/component/AiPromptMobile';
+import Footer from '@/components/layout/Footer';
 
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <AiPromptMobile/>
       </div>
       <Products />
+      <Footer />
     </div>
   );
 }
