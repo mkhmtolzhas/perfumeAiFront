@@ -40,8 +40,8 @@ const Products = () => {
         <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 items-center gap-3">
           {
             loading ? Array.from({ length: 9 }).map((_, index) => (
-              <div className="w-full px-5 py-5">
-                <div key={index} className="relative flex p-4 flex-col justify-end w-full lg:h-[50vh] h-[30vh] rounded-md shadow-lg bg-gray-200 animate-pulse" />
+              <div className="w-full px-5 py-5" key={index}>
+                <div className="relative flex p-4 flex-col justify-end w-full lg:h-[50vh] h-[30vh] rounded-md shadow-lg bg-gray-200 animate-pulse" />
               </div>
             )) : perfume.map((item: any) => (
               <Product key={item.id} name={item.name} brand={item.brand} type={item.type} price={item.price} image={item.image} url={item.url} />
