@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, use } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Sparkles } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const promptSuggestions = [
   'Какой парфюм выбрать на лето для мужчины?',
@@ -14,6 +15,7 @@ const promptSuggestions = [
 ]
 
 export function AiPromptWithSuggestions() {
+  const router = useRouter()
   const [prompt, setPrompt] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -24,10 +26,7 @@ export function AiPromptWithSuggestions() {
 
     setIsLoading(true)
     try {
-      // Здесь должен быть ваш реальный API-запрос
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      console.log("Отправлен промпт:", prompt)
-      // Обработка ответа по необходимости
+      redirect()
     } catch (error) {
       console.error("Ошибка:", error)
     } finally {
@@ -35,7 +34,9 @@ export function AiPromptWithSuggestions() {
       setPrompt("")
     }
   }
-
+  const redirect = () => {
+    router.push(`/ai-recommendation/${encodeURIComponent(prompt)}`)
+  }
   const handleSuggestionClick = (suggestion: string) => {
     setPrompt(suggestion)
     if (textareaRef.current) {

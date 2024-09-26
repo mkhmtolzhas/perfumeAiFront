@@ -49,7 +49,7 @@ const Products = () => {
           }
         </div>
     </section>
-    <button onClick={e => setPage(page+1)}>+1</button>
+    <button onClick={() => setPage(page+1)}>+1</button>
     </>
   )
 }

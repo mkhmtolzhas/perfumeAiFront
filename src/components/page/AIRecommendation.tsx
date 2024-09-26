@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 
 interface AIRecommendationProps {
@@ -7,21 +7,18 @@ interface AIRecommendationProps {
 }
 
 const AIRecommendation: React.FC<AIRecommendationProps> = ({ userPrompt }) => {
-    const [prompt, setPrompt] = useState(userPrompt)
-    const [isLoading, setIsLoading] = useState(true)
-    const [response, setResponse] = useState('')
+    const fetchData = async () => {
+        try {
+            const response = await axios.post('http://localhost:8000/api/ai/response', {
+                prompt: userPrompt
+            })
+            console.log(response)
+        } catch (error) {
+            console.error("Ошибка:", error)
+        }
+    }
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.post('http://localhost:8000/api/ai/response', {
-                    prompt: prompt
-                })
-                console.log(response)
-            } catch (error) {
-                console.error("Ошибка:", error)
-            }
-        }
         fetchData()
     }, [])
 
