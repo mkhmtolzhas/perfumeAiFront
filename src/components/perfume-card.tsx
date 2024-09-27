@@ -48,7 +48,7 @@ const PerfumeCard: React.FC<PerfumeCardProps> = ({ name, brand, type, price, lin
                 <p className="text-xl text-neutral-500 dark:text-neutral-400">{brand}</p>
               </div>
               <Badge variant="secondary" className="text-lg px-3 py-1">
-                {price} ₸
+                {price}₸
               </Badge>
             </div>
           </CardHeader>
