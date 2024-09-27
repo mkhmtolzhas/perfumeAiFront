@@ -21,7 +21,7 @@ const AIRecommendation: React.FC<AIRecommendationProps> = ({ userPrompt }) => {
     useEffect(() => {
         fetchData()
     }, [])
-    
+
     return (
         <div>AIRecommendation</div>
     )

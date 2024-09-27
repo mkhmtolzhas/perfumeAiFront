@@ -8,6 +8,7 @@ const Products = () => {
   const [perfume, setPerfumes] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(0)
+  const [isNull, setIsNull] = useState(false)
 
   const pageIncrement = () => {
     setPage(page + 1)
@@ -32,6 +33,11 @@ const Products = () => {
   }, [loading])
 
   useEffect(() => {
+    if (page === 0) {
+      setIsNull(true)
+    } else {
+      setIsNull(false)
+    }
     setLoading(true)
     fetchPerfumes()
   }, [page])
@@ -55,10 +61,13 @@ const Products = () => {
             ))
           }
         </div>
-      <div className="flex items-center justify-center text-center">
-        <button onClick={() => pageDecrement()} className="text-black text-2xl font-bold py-2 px-4 rounded">{'<'}</button>
-        <p className='font-bold text-xl'>{page}</p>
-        <button onClick={() => pageIncrement()} className="text-black text-2xl font-bold py-2 px-4 rounded">{'>'}</button>
+      <div className="flex items-center justify-center gap-2">
+        <button className='px-2 py-1 rounded-md border-[2px] border-black font-bold' onClick={() => pageDecrement()}>{'<'}</button>
+        {isNull ? <></> : <button className='px-2 py-1 rounded-md border-[2px] border-black font-bold' onClick={() => setPage(page-1)}>{page}</button>}
+        <button className='px-2 py-1 rounded-md border-[2px] border-black font-bold text-white bg-black'>{page + 1}</button>
+        <button className='px-2 py-1 rounded-md border-[2px] border-black font-bold' onClick={() => setPage(page+1)}>{page + 2}</button>
+        <button className='px-2 py-1 rounded-md border-[2px] border-black font-bold' onClick={() => setPage(page+2)}>{page + 3}</button>
+        <button className='px-2 py-1 rounded-md border-[2px] border-black font-bold' onClick={() => pageIncrement()}>{'>'}</button>
       </div>
     </section>
     </>
