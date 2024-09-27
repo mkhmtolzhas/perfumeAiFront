@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from '../layout/Header';
 import { AiPromptWithSuggestions } from '../ai-prompt-with-suggestions';
 
 const Landing = () => {
 
     return (
         <>
-            <Header/>
             <section className='w-full h-[20vh] lg:h-[80vh] md:h-[80vh] lg:relative md:relative'>
                 <div className="relative w-full h-full">
                     <div className='absolute inset-0 bg-black opacity-20 z-10'></div>

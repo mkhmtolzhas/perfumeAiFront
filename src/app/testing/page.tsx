@@ -1,11 +1,11 @@
 "use client"
-import Products from '@/components/component/Products'
 import React from 'react'
+import Loading from '@/components/component/Loading'
 
 const Test = () => {
   return (
     <>
-      <Products />
+      <Loading />
     </>
   )
 }
