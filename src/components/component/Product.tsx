@@ -40,7 +40,7 @@ const Product: React.FC<ProductProps> = ({ name, brand, type, price, image, url 
                     <div className="w-full px-4 py-4 grid gap-1 lg:min-h-[20vh] overflow-hidden text-ellipsis line-clamp-3">
                         <p className="text-sm">{type}</p>
                         <p className="text-md text-left font-bold"><span className='lg:text-lg text-md'>{brand}</span> {name}</p>
-                        <p className="text-md font-bold text-[]">{price} ₸</p>
+                        <p className="text-md font-bold">{price} ₸</p>
                     </div>
                 </div>
             </div>
