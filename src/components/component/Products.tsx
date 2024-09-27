@@ -4,16 +4,23 @@ import axios from 'axios'
 import Product from './Product'
 
 
-
-
 const Products = () => {
   const [perfume, setPerfumes] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(0)
 
+  const pageIncrement = () => {
+    setPage(page + 1)
+  }
+
+  const pageDecrement = () => {
+    if (page === 0) return
+    setPage(page - 1)
+  }
+
   const fetchPerfumes = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/perfume/?page=${page}&page_size=9`)
+      const response = await axios.get(`https://perfume-ai-production.up.railway.app/api/perfume/?page=${page}&page_size=9`)
       setPerfumes(response.data)
       setLoading(false)
     } catch (error) {
@@ -48,8 +55,12 @@ const Products = () => {
             ))
           }
         </div>
+      <div className="flex items-center justify-center text-center">
+        <button onClick={() => pageDecrement()} className="text-black text-2xl font-bold py-2 px-4 rounded">{'<'}</button>
+        <p className='font-bold text-xl'>{page}</p>
+        <button onClick={() => pageIncrement()} className="text-black text-2xl font-bold py-2 px-4 rounded">{'>'}</button>
+      </div>
     </section>
-    <button onClick={() => setPage(page+1)}>+1</button>
     </>
   )
 }
