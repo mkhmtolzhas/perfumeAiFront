@@ -17,7 +17,7 @@ const AIRecommendation: React.FC<AIRecommendationProps> = ({ userPrompt }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.post(`http://localhost:8000/api/ai/response`, {
+            const response = await axios.post(`https://perfume-ai-production.up.railway.app/api/ai/response`, {
                 prompt: userPrompt
             })
 

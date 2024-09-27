@@ -21,7 +21,7 @@ const Products = () => {
 
   const fetchPerfumes = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/perfume/?page=${page}&page_size=9`)
+      const response = await axios.get(`https://perfume-ai-production.up.railway.app/api/perfume/?page=${page}&page_size=9`)
       setPerfumes(response.data)
       setLoading(false)
     } catch (error) {
