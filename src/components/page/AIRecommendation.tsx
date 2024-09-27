@@ -22,9 +22,9 @@ const AIRecommendation: React.FC<AIRecommendationProps> = ({ userPrompt }) => {
                 prompt: userPrompt
             })
 
-            if (response.data.status === 500) {
+            if (response.status === 404) {
                 setIsLoading(false)
-                setError(response.data.message)
+                setError(response.statusText)
             }
             else if (response.status === 200) {
                 setIsLoading(false)
