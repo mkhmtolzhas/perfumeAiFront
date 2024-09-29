@@ -23,7 +23,7 @@ const SearchComponent = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/perfume/search/${name}`)
+      const response = await axios.get(`https://perfume-ai-production.up.railway.app/api/perfume/search/${name}`)
       if (response.data.length === 0) {
         setIsArrayEmpty(true)
       }
